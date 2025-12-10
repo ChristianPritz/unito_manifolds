@@ -37,17 +37,20 @@ function visualize_time(latent_i,c,states,fps)
     ylabel('latent 2');
     zlabel('latent 3');
     for i = 2:size(latent_i,2)-1
+        if hold_time > 0.0001
+            figure(fig.Number)
+            pause(hold_time);
+        end
         % Draw line segment with color from c(i-1)
-        disp(c(i-1))
+        %disp(c(i-1))
         plot3(latent_i(1,i-1:i), latent_i(2,i-1:i), latent_i(3,i-1:i), ...
               'Color', cmap(c(i-1),:), 'LineWidth', 2);
-    
+
         % Update moving spot
         h2.XData = latent_i(1,i);
         h2.YData = latent_i(2,i);
         h2.ZData = latent_i(3,i);
-
-        pause(hold_time);
+       
     end
     hold off
     

@@ -1,14 +1,11 @@
 function  plot_trajectories(latent_i,c,states)
-
+    
     cmap = jet(max(c));  
-    
-    
+
     fig = figure();
     fig.Position = [499   265   733   600];
-    
 
     % Define colormap (adjust if your c values differ)
-    
 
     % Plot initial point
     hold on
@@ -26,7 +23,7 @@ function  plot_trajectories(latent_i,c,states)
     ylabel('latent 2');
     zlabel('latent 3');
 
-    % Animate trajectory
+    % draw the segments without timedelay. 
     for i = 2:size(latent_i,2)-1
         % Draw line segment with color from c(i-1)
         plot3(latent_i(1,i-1:i), latent_i(2,i-1:i), latent_i(3,i-1:i), ...
@@ -49,10 +46,6 @@ function  plot_trajectories(latent_i,c,states)
     ax1 = gca;
     ax1.YTick = states_vals;
     ax1.YTickLabel= states;
-
-    figure()
-
-    
 
 end
 
