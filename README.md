@@ -13,7 +13,9 @@ Click on the Matlab online link below to start the course:
 
 Alternatively, download the content and run it in your local Matlab installation. 
 
-
+```bash
+git clone https://github.com/christianpritz/unito_manifolds.git
+```
 
 ----
 Christian Pritz | Winter semester 2025/26 | Department of Neuroscience "Rita Levi Montalcini", University of Turin 
