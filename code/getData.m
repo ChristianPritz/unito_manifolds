@@ -15,7 +15,7 @@ function [data_out,int_time,states,state_vec,nrns] = getData(obj,index,sttngs)
     %consistency check 
     length = size(data_out,2) == size(state_vec,2);
     nrns_check = numel(nrns) == size(data_out,1);
-    disp(['CONSISTENCY: data size ', num2str(length),' Nrns ', num2str(nrns_check)]);
+    %disp(['CONSISTENCY: data size ', num2str(length),' Nrns ', num2str(nrns_check)]);
     if sum(isnan(sttngs.interval)) ~= numel(sttngs.interval)
         data_out = data_out(:,sttngs.interval);
         state_vec = state_vec(:,sttngs.interval);

@@ -1,18 +1,13 @@
 function plot_coeffs(coeffs,num_comps,nrns)
     
     for i=1:num_comps
-        disp(i);
-        fig = figure();
+        fig = figure('WindowStyle','normal');
         hold on 
         cffs = coeffs(:,i);
-        disp(cffs(1))
         [cffs,idx] = sort(cffs);
         nrns_i = nrns(idx);
         
         for j=1:numel(cffs)
-            cffs(j);
-            
-
             if cffs(j) > 0
                 color = [.05 .3 .92];
             else
@@ -26,7 +21,7 @@ function plot_coeffs(coeffs,num_comps,nrns)
         ax.YTick = 1:numel(nrns_i);
         ax.YTickLabel = nrns_i;
         ax.XAxis.Visible = 'off';
-        title(['Loadings on PC ',num2str(i)])
+        title(['Loadings on latent activity ',num2str(i)])
         hold off
     
     end

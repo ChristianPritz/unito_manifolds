@@ -4,11 +4,14 @@ This is the repository for the 3rd lesson from Computational Neuroscience from U
 
 * Neural population dynamics 
 * Dimensionality reduction 
-* Neural Manifolds
+* Latent activities
+* Neural activities are taken from Kato et al., 2015: Global brain dynamics embed the motor command sequence of Caenorhabditis elegans, Cell
 
 Click on the Matlab online link below to start the course: 
 
-[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=christianpritz/unito_manifolds&file=manifolds_and_dim_reduction.mlx)
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=christianpritz/unito_manifolds&file=dimReduction_and_latentActivities.mlx)
+
+Alternatively, download the content and run it in your local Matlab installation. 
 
 
 

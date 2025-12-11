@@ -2,7 +2,7 @@ function visualizeActivities_2(data,nrns,fps,varargin)
 
     time = (1:size(data,2))/fps;
 
-    fig = figure();
+    fig = figure('WindowStyle','normal');
     imagesc(data)
     ax = gca;
     ax.YTick = 1:size(data,1);
@@ -19,9 +19,10 @@ function visualizeActivities_2(data,nrns,fps,varargin)
     colormap jet
     colorbar eastoutside
     ax.FontSize = 14;
-
+    title("This is what the input data looks like")
+    
     if numel(varargin) > 0
-        fig = figure();
+        fig = figure('WindowStyle','normal');
         ax = gca;
         plot(time,data(varargin{1},:))
         ylabel('Activity δF/F');

@@ -1,25 +1,41 @@
-function visualize_time(latent_i,c,states,fps)
+function visualize_time(latent_i,c,states,fps,varargin)
+    existingAxes = false;
+    for i=1:numel(varargin)
+        if strcmp(varargin{i},'axes')
+            existingAxes = true;
+            exFig = varargin{i+1}{1};
+            exAx = varargin{i+1}{2};
+        end
+    end
+    
 
     hold_time = 1/fps;
     cmap = jet(max(c));  
     
-    
-    fig = figure();
-    fig.Position = [499   265   733   600];
-    
+    if existingAxes
+        fig = exFig;
+        ax = exAx;
+        axes(ax)
+        plot([]) %lazy work around
+        hold on 
+    else
+        fig = figure('WindowStyle','normal');
+        fig.Position = [499   265   733   600];
+        hold on
+        plot([]) %lazy work around
+        ax = gca;
+    end
 
     % Define colormap (adjust if your c values differ)
     
 
     % Plot initial point
-    hold on
-    h2 = scatter3(latent_i(1,1), latent_i(2,1), latent_i(3,1), 500, '.', 'CData', [1 0 0]);
-    % Set axis limits
-    ax = gca;
-    axis equal;
-    ax = gca;
     
-
+    h2 = scatter3(ax,latent_i(1,1), latent_i(2,1), latent_i(3,1), 500, '.', 'CData', [1 0 0]);
+    % Set axis limits
+    
+    axis equal;
+   
     ax.XLim = [min(latent_i(1,:)), max(latent_i(1,:))];
     ax.YLim = [min(latent_i(2,:)), max(latent_i(2,:))];
     ax.ZLim = [min(latent_i(3,:)), max(latent_i(3,:))];
@@ -38,7 +54,7 @@ function visualize_time(latent_i,c,states,fps)
     zlabel('latent 3');
     for i = 2:size(latent_i,2)-1
         if hold_time > 0.0001
-            figure(fig.Number)
+            axes(ax)
             pause(hold_time);
         end
         % Draw line segment with color from c(i-1)
